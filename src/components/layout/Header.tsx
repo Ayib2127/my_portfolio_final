@@ -42,8 +42,12 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">YE</span>
+            <div className="w-10 h-10 rounded-lg overflow-hidden border-2 border-primary-500 group-hover:scale-110 transition-transform duration-300 shadow-md">
+              <img
+                src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_40,h_40,c_fill,g_face,q_auto,f_auto/v1764151979/yb2_qyry3u.png"
+                alt="Yibeltal Ebabu"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="hidden sm:block">
               <span className="font-bold text-lg text-gray-900">Yibeltal Ebabu</span>
@@ -72,7 +76,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <a 
-              href="/cv/Yibeltal_Ebabu_CV.pdf" 
+              href="https://drive.google.com/uc?export=download&id=1O6cD2SdBb6iSqdDWZ3lLF4tBxHIaw4hG" 
               download="Yibeltal_Ebabu_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"

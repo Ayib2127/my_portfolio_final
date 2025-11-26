@@ -65,7 +65,7 @@ export default function Hero() {
               className="h-20 mb-6"
             >
               <p className="text-2xl md:text-3xl font-semibold text-gray-700">
-                I'm a{' '}
+                I&apos;m a{' '}
                 <span className="gradient-text">
                   {heroContent.titles[titleIndex]}
                 </span>
@@ -138,13 +138,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative w-full aspect-square max-w-lg mx-auto">
+            <div className="relative w-full max-w-lg mx-auto">
               {/* Profile Image */}
-              <div className="w-full h-full rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-primary-100 to-accent-100">
+              <div className="w-full rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-primary-100 to-accent-100 p-4">
                 <img
                   src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1764151979/yb1_xoxfli.png"
                   alt="Yibeltal Ebabu Dires"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain rounded-2xl"
                 />
               </div>
 

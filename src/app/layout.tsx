@@ -18,6 +18,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Yibeltal Ebabu Dires | Structural Engineer & Software Trainer',
   description: 'Professional portfolio of Yibeltal Ebabu Dires - Structural Engineer and Engineering Software Trainer specializing in high-rise building design, ETABS, SAP2000, and advanced engineering software.',
+  icons: {
+    icon: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_32,h_32,c_fill,g_face,r_max/v1764151979/yb2_qyry3u.png',
+    apple: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_180,h_180,c_fill,g_face,r_max/v1764151979/yb2_qyry3u.png',
+  },
   keywords: [
     'Structural Engineer',
     'Civil Engineer',

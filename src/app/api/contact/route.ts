@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
-// Create Supabase client for server-side operations
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+// Create Supabase client for server-side operations (only if configured)
+const getSupabaseClient = () => {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  
+  if (!url || !key) {
+    return null
+  }
+  
+  return createClient(url, key)
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,6 +32,29 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { success: false, error: 'Invalid email format' },
         { status: 400 }
+      )
+    }
+
+    // Get Supabase client
+    const supabase = getSupabaseClient()
+    
+    // If Supabase is not configured, return success but log to console
+    if (!supabase) {
+      console.log('Contact form submission (Supabase not configured):', {
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
+        subject: subject?.trim() || null,
+        message: message.trim(),
+        timestamp: new Date().toISOString(),
+      })
+      
+      return NextResponse.json(
+        {
+          success: true,
+          message: 'Message received successfully',
+          note: 'Supabase not configured - message logged to console',
+        },
+        { status: 200 }
       )
     }
 
@@ -74,6 +103,16 @@ export async function POST(request: NextRequest) {
 // Optional: GET endpoint to retrieve messages (protected)
 export async function GET(request: NextRequest) {
   try {
+    // Get Supabase client
+    const supabase = getSupabaseClient()
+    
+    if (!supabase) {
+      return NextResponse.json(
+        { success: false, error: 'Supabase not configured' },
+        { status: 503 }
+      )
+    }
+    
     // Add authentication check here if needed
     const { searchParams } = new URL(request.url)
     const limit = parseInt(searchParams.get('limit') || '10')

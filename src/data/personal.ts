@@ -34,7 +34,7 @@ export const heroContent = {
   ],
   description: 'Passionate about designing innovative structures and empowering engineers with cutting-edge software skills.',
   cta: {
-    primary: { text: 'Download CV', href: '/cv/Yibeltal_Ebabu_CV.pdf' },
+    primary: { text: 'Download CV', href: 'https://drive.google.com/uc?export=download&id=1O6cD2SdBb6iSqdDWZ3lLF4tBxHIaw4hG' },
     secondary: { text: 'Contact Me', href: '#contact' },
   },
   images: {

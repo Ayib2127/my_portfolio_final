@@ -15,8 +15,12 @@ export default function Footer() {
           {/* About Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">YE</span>
+              <div className="w-10 h-10 rounded-lg overflow-hidden border-2 border-primary-400 shadow-md">
+                <img
+                  src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_40,h_40,c_fill,g_face,q_auto,f_auto/v1764151979/yb2_qyry3u.png"
+                  alt="Yibeltal Ebabu"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-xl text-white">Yibeltal Ebabu Dires</h3>

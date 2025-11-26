@@ -27,7 +27,7 @@ export default function Testimonials() {
           >
             {/* Quote Icon */}
             <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white text-4xl font-serif">"</span>
+              <span className="text-white text-4xl font-serif">&ldquo;</span>
             </div>
 
             {/* Rating */}
@@ -41,7 +41,7 @@ export default function Testimonials() {
 
             {/* Message */}
             <p className="text-gray-700 mb-6 leading-relaxed italic">
-              "{testimonial.message}"
+              &ldquo;{testimonial.message}&rdquo;
             </p>
 
             {/* Author Info */}
@@ -81,13 +81,13 @@ export default function Testimonials() {
               Want to Work Together?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
             <a
               href="#contact"
               className="inline-block bg-gradient-to-r from-primary-600 to-accent-500 text-white px-8 py-3 rounded-lg font-medium hover:shadow-xl transition-all hover:scale-105"
             >
-              Let's Connect
+              Let&apos;s Connect
             </a>
           </div>
         </div>

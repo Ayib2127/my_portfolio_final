@@ -45,7 +45,7 @@ export const footerLinks = {
     { label: 'Technical Support', href: '#projects' },
   ],
   resources: [
-    { label: 'Download CV', href: '/cv/Yibeltal_Ebabu_CV.pdf' },
+    { label: 'Download CV', href: 'https://drive.google.com/uc?export=download&id=1O6cD2SdBb6iSqdDWZ3lLF4tBxHIaw4hG' },
     { label: 'LinkedIn', href: '#' },
     { label: 'GitHub', href: '#' },
   ],

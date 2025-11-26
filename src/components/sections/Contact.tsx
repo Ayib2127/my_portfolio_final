@@ -101,9 +101,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
         >
           <div className="bg-gradient-to-br from-primary-600 to-accent-500 rounded-2xl p-8 text-white shadow-2xl">
-            <h3 className="text-3xl font-bold mb-6">Let's Connect</h3>
+            <h3 className="text-3xl font-bold mb-6">Let&apos;s Connect</h3>
             <p className="text-white/90 mb-8 text-lg">
-              I'm available for freelance projects, consulting, and training opportunities. 
+              I&apos;m available for freelance projects, consulting, and training opportunities. 
               Feel free to reach out through any of the following channels.
             </p>
 
@@ -262,7 +262,7 @@ export default function Contact() {
             {/* Status Messages */}
             {submitStatus === 'success' && (
               <div className="p-4 bg-green-50 text-green-700 rounded-lg border border-green-200">
-                ✓ Message sent successfully! I'll get back to you soon.
+                ✓ Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
 

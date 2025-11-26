@@ -127,7 +127,7 @@ export default function Experience() {
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             With over 5 years of combined experience in structural engineering and software training,
-            I'm ready to bring value to your next project or training program.
+            I&apos;m ready to bring value to your next project or training program.
           </p>
           <a
             href="#contact"
