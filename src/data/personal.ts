@@ -17,7 +17,7 @@ My professional journey blends practical structural design with a passion for te
     { name: 'Geez', proficiency: 'Basic' },
   ],
   social: {
-    linkedin: '#', // Add your LinkedIn URL
+    linkedin: 'https://www.linkedin.com/in/yibeltal-dires-011a85132',
     github: '#',   // Add your GitHub URL (if applicable)
     twitter: '#',  // Add your Twitter URL (if applicable)
   },

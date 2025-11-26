@@ -8,7 +8,7 @@ export const testimonials: Testimonial[] = [
     company: 'Debre Markos University',
     message: 'Mr. Yibeltal is, without question, the most outstanding student of his batch. He is a careful and creative thinker with an eye for details and a devotion to logic. His academic performance and dedication to his studies were exemplary throughout his time at our institution.',
     rating: 5,
-    image: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_100,h_100,c_fill,g_face,q_auto,f_auto/v1764151979/yb2_qyry3u.png',
+    image: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_100,h_100,c_fill,g_face,q_auto,f_auto/v1764169842/f34c14ea-aec8-4de4-8fe9-dce7212b6747.png',
   },
   {
     id: '2',

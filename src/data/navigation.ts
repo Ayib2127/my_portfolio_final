@@ -46,7 +46,7 @@ export const footerLinks = {
   ],
   resources: [
     { label: 'Download CV', href: 'https://drive.google.com/uc?export=download&id=1O6cD2SdBb6iSqdDWZ3lLF4tBxHIaw4hG' },
-    { label: 'LinkedIn', href: '#' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yibeltal-dires-011a85132' },
     { label: 'GitHub', href: '#' },
   ],
 }
