@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { testimonials } from '@/data/testimonials'
 import { HiStar } from 'react-icons/hi'
@@ -47,9 +48,11 @@ export default function Testimonials() {
             {/* Author Info */}
             <div className="flex items-center pt-4 border-t border-gray-200">
               {testimonial.image ? (
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full object-cover flex-shrink-0"
                 />
               ) : (

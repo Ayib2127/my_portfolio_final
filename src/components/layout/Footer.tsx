@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { footerLinks } from '@/data/navigation'
 import { personalInfo } from '@/data/personal'
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
@@ -16,9 +17,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 rounded-lg overflow-hidden border-2 border-primary-400 shadow-md">
-                <img
+                <Image
                   src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_40,h_40,c_fill,g_face,q_auto,f_auto/v1764151979/yb2_qyry3u.png"
                   alt="Yibeltal Ebabu"
+                  width={40}
+                  height={40}
                   className="w-full h-full object-cover"
                 />
               </div>

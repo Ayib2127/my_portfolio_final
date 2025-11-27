@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { heroContent } from '@/data/personal'
+import Image from 'next/image'
+import { heroContent, personalInfo } from '@/data/personal'
 import Button from '@/components/ui/Button'
 import { HiDownload, HiMail } from 'react-icons/hi'
 import { FaLinkedin, FaGithub, FaTelegram } from 'react-icons/fa'
@@ -115,7 +116,7 @@ export default function Hero() {
               className="flex space-x-4"
             >
               <a
-                href={heroContent.social?.linkedin || "#"}
+                href={personalInfo.social?.linkedin || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
@@ -124,7 +125,7 @@ export default function Hero() {
                 <FaLinkedin className="w-6 h-6" />
               </a>
               <a
-                href={heroContent.social?.github || "#"}
+                href={personalInfo.social?.github || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
@@ -133,7 +134,7 @@ export default function Hero() {
                 <FaGithub className="w-6 h-6" />
               </a>
               <a
-                href={heroContent.social?.telegram || "#"}
+                href={personalInfo.social?.telegram || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
@@ -154,10 +155,13 @@ export default function Hero() {
             <div className="relative w-full max-w-lg mx-auto">
               {/* Profile Image */}
               <div className="w-full rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-primary-100 to-accent-100 p-4">
-                <img
+                <Image
                   src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1764151979/yb1_xoxfli.png"
                   alt="Yibeltal Ebabu Dires"
+                  width={1200}
+                  height={800}
                   className="w-full h-auto object-contain rounded-2xl"
+                  priority
                 />
               </div>
 
