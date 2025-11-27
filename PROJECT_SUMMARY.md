@@ -217,12 +217,12 @@ portfolio-website/
 
 ### Education
 - **BSc in Civil Engineering**
-- Debre Markos University (2013-2017)
+- Debre Markos University (2014-2018)
 - CGPA: 3.73 / 4.0
 - Rank: 2nd in graduating class
 
 ### Work Experience
-1. **Structural Engineering Software Trainer** (2021-2023)
+1. **Structural Engineering Software Trainer** (2021-2025)
    - Eagle Language, Computer and Engineering Software Training Institute
    
 2. **Structural Engineer** (2018-2021)

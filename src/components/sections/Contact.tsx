@@ -8,7 +8,7 @@ import Textarea from '@/components/ui/Textarea'
 import Button from '@/components/ui/Button'
 import { personalInfo } from '@/data/personal'
 import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaTwitter, FaTelegram } from 'react-icons/fa'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -122,6 +122,7 @@ export default function Contact() {
                 </div>
               </a>
 
+
               <a
                 href={`tel:${personalInfo.phone}`}
                 className="flex items-center space-x-4 p-4 bg-white/10 backdrop-blur-lg rounded-xl hover:bg-white/20 transition-all duration-300"
@@ -131,23 +132,6 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-white/70">Phone / Call</p>
-                  <p className="font-semibold">{personalInfo.phone}</p>
-                </div>
-              </a>
-
-              <a
-                href={`https://t.me/${personalInfo.telegram?.replace('+', '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-4 p-4 bg-white/10 backdrop-blur-lg rounded-xl hover:bg-white/20 transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.155.232.171.326.016.094.037.308.021.475z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm text-white/70">Telegram</p>
                   <p className="font-semibold">{personalInfo.phone}</p>
                 </div>
               </a>
@@ -190,6 +174,14 @@ export default function Contact() {
                   className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
                 >
                   <FaTwitter className="w-6 h-6" />
+                </a>
+                <a
+                  href={personalInfo.social.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
+                >
+                  <FaTelegram className="w-6 h-6" />
                 </a>
               </div>
             </div>

@@ -7,7 +7,7 @@ export const workExperience: WorkExperience[] = [
     company: 'Eagle Language, Computer and Engineering Software Training Institute',
     location: 'Addis Ababa, Ethiopia',
     startDate: '2021-11',
-    endDate: '2023-09',
+    endDate: '2025-09',
     description: 'Provided comprehensive training on structural engineering software to students and professionals, preparing detailed training manuals and conducting hands-on sessions.',
     responsibilities: [
       'Trained students and professionals in ArchiCAD, Revit, ETABS, SAP 2000, SAFE, and AutoCAD Civil 3D',
@@ -15,7 +15,6 @@ export const workExperience: WorkExperience[] = [
       'Conducted practical workshops on structural software applications',
       'Developed curriculum for advanced structural engineering courses',
       'Mentored students on real-world engineering projects',
-      'Earning a gross salary of ETB 11,950',
     ],
     technologies: ['ETABS', 'SAP 2000', 'SAFE', 'ArchiCAD', 'Revit', 'Civil 3D'],
   },
@@ -87,7 +86,7 @@ export const education: Education[] = [
     rank: '2nd in graduating class',
     achievements: [
       'Graduated with CGPA of 3.73 out of 4.0',
-      'Ranked 2nd among all Civil Engineering graduates',
+      'Ranked 2nd among all Institute of Technology graduates',
       'Final Year Project: Geometrical and Asphalt Pavement Design of Chirecha to Ganami Road Project',
       'Semester Project: Integrated Structural and Geotechnical Design of B+G+4 Administrative Offices',
       'Gained skills in optimization techniques and AutoCAD Civil 3D',

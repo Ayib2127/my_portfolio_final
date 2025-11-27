@@ -22,6 +22,7 @@ export interface SocialLinks {
   github?: string
   twitter?: string
   facebook?: string
+  telegram?: string
 }
 
 // Work Experience Types

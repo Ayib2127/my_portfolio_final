@@ -20,6 +20,7 @@ My professional journey blends practical structural design with a passion for te
     linkedin: 'https://www.linkedin.com/in/yibeltal-dires-011a85132',
     github: '#',   // Add your GitHub URL (if applicable)
     twitter: '#',  // Add your Twitter URL (if applicable)
+    telegram: 'https://t.me/251910083733',  // Telegram profile
   },
 }
 
@@ -29,7 +30,7 @@ export const heroContent = {
   titles: [
     'Structural Engineer',
     'Software Trainer',
-    'Civil Engineering Expert',
+    'Senior CAD Designer',
     'High-Rise Design Specialist',
   ],
   description: 'Passionate about designing innovative structures and empowering engineers with cutting-edge software skills.',

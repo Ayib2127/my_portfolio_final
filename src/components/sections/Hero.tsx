@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { heroContent } from '@/data/personal'
 import Button from '@/components/ui/Button'
 import { HiDownload, HiMail } from 'react-icons/hi'
-import { FaLinkedin, FaGithub } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaTelegram } from 'react-icons/fa'
 
 export default function Hero() {
   const [titleIndex, setTitleIndex] = useState(0)
@@ -115,18 +115,31 @@ export default function Hero() {
               className="flex space-x-4"
             >
               <a
-                href="#"
+                href={heroContent.social?.linkedin || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href={heroContent.social?.github || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
                 aria-label="GitHub"
               >
                 <FaGithub className="w-6 h-6" />
+              </a>
+              <a
+                href={heroContent.social?.telegram || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
+                aria-label="Telegram"
+              >
+                <FaTelegram className="w-6 h-6" />
               </a>
             </motion.div>
           </motion.div>
