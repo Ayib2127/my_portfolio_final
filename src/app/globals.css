@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
+@layer base {
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Better touch targets on mobile */
+  @media (hover: none) and (pointer: coarse) {
+    button,
+    a,
+    input,
+    textarea,
+    select {
+      min-height: 44px;
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -63,6 +89,13 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary-600;
+}
+
+/* Mobile scrollbar (thinner) */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
 }
 
 /* Typography enhancements */
@@ -221,4 +254,72 @@ h4 {
 /* Focus styles for accessibility */
 *:focus-visible {
   @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Improve touch targets for better mobile UX */
+  button, a[role="button"], input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Optimize font sizes for mobile readability */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Reduce motion for better mobile performance */
+  * {
+    animation-duration: 0.3s !important;
+  }
+  
+  /* Better section spacing on mobile */
+  .section-padding {
+    @apply py-12 md:py-16;
+  }
+  
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better card spacing on mobile */
+  .card-hover {
+    @apply hover:-translate-y-1;
+  }
+  
+  /* Optimize typography for smaller screens */
+  h1 {
+    @apply text-3xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-2xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-xl leading-tight;
+  }
+  
+  /* Better button sizing on mobile */
+  .btn-primary, .btn-secondary {
+    @apply px-5 py-2.5 text-sm;
+  }
+}
+
+/* Extra small devices optimization */
+@media (max-width: 480px) {
+  .container-custom {
+    @apply px-3;
+  }
+  
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
 }

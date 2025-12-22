@@ -1,0 +1,7 @@
+# robots.txt for Yibeltal Ebabu Portfolio
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://yibeltal-portfolio.vercel.app/sitemap.xml

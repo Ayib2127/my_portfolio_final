@@ -28,7 +28,7 @@ export default function Textarea({
       <textarea
         id={textareaId}
         className={cn(
-          'w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 outline-none resize-none',
+          'w-full px-4 py-3 sm:py-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 outline-none resize-none text-base touch-manipulation',
           error && 'border-red-500 focus:ring-red-500',
           className
         )}

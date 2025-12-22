@@ -92,7 +92,7 @@ export default function Contact() {
         description="Have a project in mind or need engineering software training? Let's discuss how I can help"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
         {/* Contact Information */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

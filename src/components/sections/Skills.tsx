@@ -42,10 +42,10 @@ export default function Skills() {
       />
 
       {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
         <button
           onClick={() => setSelectedCategory(null)}
-          className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+          className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 active:scale-95 ${
             selectedCategory === null
               ? 'bg-primary-600 text-white shadow-lg'
               : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -57,7 +57,7 @@ export default function Skills() {
           <button
             key={category.category}
             onClick={() => setSelectedCategory(category.category)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+            className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 active:scale-95 ${
               selectedCategory === category.category
                 ? 'bg-primary-600 text-white shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -69,7 +69,7 @@ export default function Skills() {
       </div>
 
       {/* Skills Grid */}
-      <div className="space-y-12">
+      <div className="space-y-8 sm:space-y-12">
         {displayedCategories.map((category, categoryIndex) => (
           <motion.div
             key={category.category}
@@ -78,12 +78,12 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="w-2 h-8 bg-gradient-to-b from-primary-500 to-accent-500 rounded-full mr-3" />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
+              <span className="w-1.5 sm:w-2 h-6 sm:h-8 bg-gradient-to-b from-primary-500 to-accent-500 rounded-full mr-2 sm:mr-3" />
               {category.category}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {category.skills.map((skill, skillIndex) => (
                 <motion.div
                   key={skill.name}
@@ -131,18 +131,18 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mt-16 bg-white rounded-2xl p-8 shadow-lg"
+        className="mt-12 sm:mt-16 bg-white rounded-2xl p-4 sm:p-8 shadow-lg"
       >
-        <h4 className="font-bold text-xl text-gray-900 mb-6 text-center">
+        <h4 className="font-bold text-lg sm:text-xl text-gray-900 mb-4 sm:mb-6 text-center">
           Proficiency Levels Explained
         </h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {Object.entries(proficiencyLevels).map(([level, description]) => (
-            <div key={level} className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50">
-              <Badge variant="primary" size="lg" className="mb-3">
+            <div key={level} className="flex flex-col items-center text-center p-3 sm:p-4 rounded-lg bg-gray-50">
+              <Badge variant="primary" size="sm" className="mb-2 sm:mb-3 text-xs sm:text-sm">
                 {level}
               </Badge>
-              <p className="text-sm text-gray-600">{description}</p>
+              <p className="text-xs sm:text-sm text-gray-600">{description}</p>
             </div>
           ))}
         </div>

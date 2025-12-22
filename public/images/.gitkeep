@@ -1,0 +1,2 @@
+# Images are served via Cloudinary CDN for optimal performance
+# See src/data/personal.ts for image URLs

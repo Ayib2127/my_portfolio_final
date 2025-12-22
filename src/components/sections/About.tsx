@@ -19,7 +19,7 @@ export default function About() {
         description="A passionate Civil Engineer dedicated to excellence in structural design and engineering education"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
         {/* Bio Section */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -27,7 +27,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Professional Profile</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Professional Profile</h3>
           <div className="prose prose-lg text-gray-600 space-y-4">
             {personalInfo.bio.split('\n\n').map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
@@ -55,8 +55,8 @@ export default function About() {
           </div>
 
           {/* Languages */}
-          <div className="mt-8">
-            <h4 className="font-semibold text-gray-900 mb-3">Languages</h4>
+          <div className="mt-6 sm:mt-8">
+            <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Languages</h4>
             <div className="flex flex-wrap gap-2">
               {personalInfo.languages.map((lang) => (
                 <div

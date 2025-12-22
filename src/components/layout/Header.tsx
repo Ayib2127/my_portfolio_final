@@ -40,10 +40,10 @@ export default function Header() {
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 rounded-lg overflow-hidden border-2 border-primary-500 group-hover:scale-110 transition-transform duration-300 shadow-md">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg overflow-hidden border-2 border-primary-500 group-hover:scale-110 transition-transform duration-300 shadow-md">
               <Image
                 src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_40,h_40,c_fill,g_face,q_auto,f_auto/v1764151979/yb2_qyry3u.png"
                 alt="Yibeltal Ebabu"
@@ -53,7 +53,7 @@ export default function Header() {
               />
             </div>
             <div className="hidden sm:block">
-              <span className="font-bold text-lg text-gray-900">Yibeltal Ebabu</span>
+              <span className="font-bold text-base sm:text-lg text-gray-900">Yibeltal Ebabu</span>
               <div className="w-16 h-0.5 ethiopian-accent rounded-full" />
             </div>
           </Link>
@@ -113,19 +113,19 @@ export default function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'lg:hidden fixed inset-0 top-20 bg-white/98 backdrop-blur-lg transition-all duration-300',
+          'lg:hidden fixed inset-0 top-16 sm:top-20 bg-white/98 backdrop-blur-lg transition-all duration-300',
           isMobileMenuOpen
             ? 'opacity-100 visible'
             : 'opacity-0 invisible'
         )}
       >
-        <nav className="flex flex-col items-center justify-center h-full space-y-8 px-4">
+        <nav className="flex flex-col items-center justify-center h-full space-y-6 sm:space-y-8 px-4">
           {navigationItems.map((item, index) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
-              className="text-2xl font-semibold text-gray-900 hover:text-primary-600 transition-colors duration-200"
+              className="text-xl sm:text-2xl font-semibold text-gray-900 hover:text-primary-600 transition-colors duration-200 active:scale-95"
               style={{
                 animation: isMobileMenuOpen ? `slideDown 0.3s ease-out ${index * 0.1}s both` : 'none'
               }}
@@ -134,14 +134,14 @@ export default function Header() {
             </a>
           ))}
           
-          <div className="flex flex-col space-y-4 w-full max-w-xs pt-8">
+          <div className="flex flex-col space-y-3 w-full max-w-xs pt-6 sm:pt-8">
             <a href="/cv/Yibeltal_Ebabu_CV.pdf" download className="w-full">
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full text-sm sm:text-base py-3">
                 Download CV
               </Button>
             </a>
             <a href="#contact" className="w-full">
-              <Button className="w-full">
+              <Button className="w-full text-sm sm:text-base py-3">
                 Contact Me
               </Button>
             </a>
