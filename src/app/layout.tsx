@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   title: 'Yibeltal Ebabu Dires | Structural Engineer & Software Trainer',
   description: 'Professional portfolio of Yibeltal Ebabu Dires - Structural Engineer and Engineering Software Trainer specializing in high-rise building design, ETABS, SAP2000, and advanced engineering software.',
   icons: {
-    icon: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_32,h_32,c_fill,g_face,r_max/v1764151979/yb2_qyry3u.png',
-    apple: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_180,h_180,c_fill,g_face,r_max/v1764151979/yb2_qyry3u.png',
+    icon: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_32,h_32,c_fill,g_face,r_max/v1768052465/3X4_tie_pcnbos.png',
+    apple: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_180,h_180,c_fill,g_face,r_max/v1768052465/3X4_tie_pcnbos.png',
   },
   keywords: [
     'Structural Engineer',
@@ -46,7 +46,8 @@ export const metadata: Metadata = {
     description: 'Professional portfolio showcasing expertise in structural engineering and engineering software training.',
     images: [
       {
-        url: '/images/og-image.jpg',
+        // Use a stable remote URL for social previews (avoids missing local asset)
+        url: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/v1768052465/3X4_tie_pcnbos.png',
         width: 1200,
         height: 630,
         alt: 'Yibeltal Ebabu Dires Portfolio',
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Yibeltal Ebabu Dires | Structural Engineer & Software Trainer',
     description: 'Professional portfolio showcasing expertise in structural engineering and engineering software training.',
-    images: ['/images/og-image.jpg'],
+    images: ['https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/v1768052465/3X4_tie_pcnbos.png'],
   },
   robots: {
     index: true,

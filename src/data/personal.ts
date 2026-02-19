@@ -39,7 +39,7 @@ export const heroContent = {
     secondary: { text: 'Contact Me', href: '#contact' },
   },
   images: {
-    hero: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1764151979/yb1_xoxfli.png',
-    alt: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1764151979/yb2_qyry3u.png',
+    hero: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1768052457/at_site_kl5kin.png',
+    alt: 'https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1768052465/3X4_tie_pcnbos.png',
   },
 }

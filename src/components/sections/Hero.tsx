@@ -156,11 +156,11 @@ export default function Hero() {
               {/* Profile Image */}
               <div className="w-full rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-primary-100 to-accent-100 p-4">
                 <Image
-                  src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1764151979/yb1_xoxfli.png"
+                  src="https://res.cloudinary.com/dbn8jx8bh/image/upload/w_1200,q_auto,f_auto/v1768052457/at_site_kl5kin.png"
                   alt="Yibeltal Ebabu Dires"
                   width={1200}
                   height={800}
-                  className="w-full h-auto object-contain rounded-2xl"
+                  className="w-full h-auto object-cover rounded-2xl"
                   priority
                 />
               </div>
