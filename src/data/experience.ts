@@ -6,7 +6,7 @@ export const workExperience: WorkExperience[] = [
     title: 'Structural Engineer',
     company: 'Emarosh Engineering PLC',
     location: 'Addis Ababa, Ethiopia',
-    startDate: '2026-01',
+    startDate: '2024-01',
     endDate: 'Present',
     description: 'Delivering structural analysis, design, and documentation for residential and commercial building projects in compliance with international engineering standards.',
     responsibilities: [
@@ -25,7 +25,7 @@ export const workExperience: WorkExperience[] = [
     company: 'Eagle Language, Computer and Engineering Software Training Institute',
     location: 'Addis Ababa, Ethiopia',
     startDate: '2021-11',
-    endDate: '2025-09',
+    endDate: '2023-09',
     description: 'Provided comprehensive training on structural engineering software to students and professionals, preparing detailed training manuals and conducting hands-on sessions.',
     responsibilities: [
       'Trained students and professionals in ETABS, SAP2000, SAFE, Revit Structure, and ArchiCAD',
