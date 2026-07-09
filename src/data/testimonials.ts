@@ -36,30 +36,29 @@ export const testimonials: Testimonial[] = [
   },
 ]
 
-// Statistics/Achievements
 export const achievements = [
   {
     id: '1',
-    number: '5+',
+    number: '7+',
     label: 'Years Experience',
-    description: 'Combined experience in structural engineering and software training',
+    description: 'In structural engineering, design, and software training',
   },
   {
     id: '2',
     number: '200+',
-    label: 'Students Trained',
-    description: 'Professionals and students trained in engineering software',
+    label: 'Engineers Trained',
+    description: 'Students and professionals trained in ETABS, SAP2000, SAFE & BIM',
   },
   {
     id: '3',
     number: '50+',
-    label: 'Projects Completed',
-    description: 'Structural design and analysis projects delivered',
+    label: 'Projects Delivered',
+    description: 'Structural design and analysis projects across Ethiopia',
   },
   {
     id: '4',
-    number: '10+',
-    label: 'Software Proficiencies',
-    description: 'Engineering and design software tools mastered',
+    number: '3',
+    label: 'Design Codes',
+    description: 'ES EN 2015 · Eurocodes · ACI 318',
   },
 ]

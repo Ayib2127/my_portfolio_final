@@ -2,7 +2,7 @@ import { SkillCategory } from '@/types'
 
 export const skillsData: SkillCategory[] = [
   {
-    category: 'Structural & Engineering Analysis',
+    category: 'Structural Design & Analysis',
     skills: [
       {
         name: 'ETABS',
@@ -11,7 +11,7 @@ export const skillsData: SkillCategory[] = [
         icon: '🏗️',
       },
       {
-        name: 'SAP 2000',
+        name: 'SAP2000',
         proficiency: 'Expert',
         level: 'C2',
         icon: '🔧',
@@ -23,7 +23,7 @@ export const skillsData: SkillCategory[] = [
         icon: '📐',
       },
       {
-        name: 'Staad Pro',
+        name: 'STAAD.Pro',
         proficiency: 'Intermediate',
         level: 'B2',
         icon: '⚙️',
@@ -31,13 +31,13 @@ export const skillsData: SkillCategory[] = [
     ],
   },
   {
-    category: 'Architectural & Drafting',
+    category: 'BIM & Drafting',
     skills: [
       {
-        name: 'AutoCAD',
+        name: 'Revit Structure',
         proficiency: 'Proficient',
         level: 'C1',
-        icon: '✏️',
+        icon: '🏢',
       },
       {
         name: 'ArchiCAD',
@@ -46,16 +46,10 @@ export const skillsData: SkillCategory[] = [
         icon: '🏛️',
       },
       {
-        name: 'Revit Structure',
-        proficiency: 'Intermediate',
-        level: 'B2',
-        icon: '🏢',
-      },
-      {
-        name: 'AutoCAD Civil 3D',
+        name: 'AutoCAD',
         proficiency: 'Proficient',
         level: 'C1',
-        icon: '🛣️',
+        icon: '✏️',
       },
     ],
   },
@@ -76,58 +70,33 @@ export const skillsData: SkillCategory[] = [
       },
     ],
   },
+]
+
+// Design codes — shown as trust badges at the bottom of Skills section
+export const designCodes = [
   {
-    category: 'Highway & Road Design',
-    skills: [
-      {
-        name: 'MX-Road',
-        proficiency: 'Expert',
-        level: 'C2',
-        icon: '🛤️',
-      },
-      {
-        name: 'Eagle Point',
-        proficiency: 'Proficient',
-        level: 'C1',
-        icon: '🦅',
-      },
-      {
-        name: 'InRoads',
-        proficiency: 'Intermediate',
-        level: 'B1',
-        icon: '🚧',
-      },
-    ],
+    id: 'esen',
+    label: 'ES EN 2015',
+    description: 'Ethiopian Standard',
+    icon: 'EN',
   },
   {
-    category: 'General Software & Tools',
-    skills: [
-      {
-        name: 'Microsoft Office Suite',
-        proficiency: 'Expert',
-        level: 'C2',
-        icon: '💼',
-      },
-      {
-        name: 'Excel (Advanced)',
-        proficiency: 'Expert',
-        level: 'C2',
-        icon: '📊',
-      },
-      {
-        name: 'PowerPoint',
-        proficiency: 'Proficient',
-        level: 'C1',
-        icon: '📽️',
-      },
-    ],
+    id: 'eurocode',
+    label: 'Eurocodes',
+    description: 'EN 1990 – EN 1998',
+    icon: 'EU',
+  },
+  {
+    id: 'aci',
+    label: 'ACI 318',
+    description: 'Building Code',
+    icon: 'ACI',
   },
 ]
 
 // Proficiency level descriptions
 export const proficiencyLevels = {
-  'B1': 'Basic understanding and can perform simple tasks',
-  'B2': 'Intermediate skills with ability to handle moderate complexity',
-  'C1': 'Proficient with ability to handle complex tasks independently',
-  'C2': 'Expert level with mastery and ability to train others',
+  'B2': 'Intermediate — handles moderate complexity',
+  'C1': 'Proficient — works independently on complex tasks',
+  'C2': 'Expert — full mastery, able to train others',
 }

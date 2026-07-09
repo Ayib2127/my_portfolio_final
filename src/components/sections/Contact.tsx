@@ -151,38 +151,50 @@ export default function Contact() {
             <div>
               <p className="text-white/70 mb-4">Follow me on social media</p>
               <div className="flex space-x-4">
-                <a
-                  href={personalInfo.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
-                >
-                  <FaLinkedin className="w-6 h-6" />
-                </a>
-                <a
-                  href={personalInfo.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
-                >
-                  <FaGithub className="w-6 h-6" />
-                </a>
-                <a
-                  href={personalInfo.social.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
-                >
-                  <FaTwitter className="w-6 h-6" />
-                </a>
-                <a
-                  href={personalInfo.social.telegram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
-                >
-                  <FaTelegram className="w-6 h-6" />
-                </a>
+                {personalInfo.social.linkedin && (
+                  <a
+                    href={personalInfo.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedin className="w-6 h-6" />
+                  </a>
+                )}
+                {personalInfo.social.github && (
+                  <a
+                    href={personalInfo.social.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
+                    aria-label="GitHub"
+                  >
+                    <FaGithub className="w-6 h-6" />
+                  </a>
+                )}
+                {personalInfo.social.twitter && (
+                  <a
+                    href={personalInfo.social.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
+                    aria-label="Twitter"
+                  >
+                    <FaTwitter className="w-6 h-6" />
+                  </a>
+                )}
+                {personalInfo.social.telegram && (
+                  <a
+                    href={personalInfo.social.telegram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary-600 transition-all duration-300"
+                    aria-label="Telegram"
+                  >
+                    <FaTelegram className="w-6 h-6" />
+                  </a>
+                )}
               </div>
             </div>
 

@@ -3,30 +3,28 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Section, { SectionHeader } from '@/components/ui/Section'
-import { skillsData, proficiencyLevels } from '@/data/skills'
+import { skillsData, proficiencyLevels, designCodes } from '@/data/skills'
 import Badge from '@/components/ui/Badge'
 
 export default function Skills() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
   const getProficiencyWidth = (level: string) => {
-    const widths = {
-      'B1': '50%',
+    const widths: Record<string, string> = {
       'B2': '65%',
       'C1': '85%',
       'C2': '100%',
     }
-    return widths[level as keyof typeof widths] || '0%'
+    return widths[level] || '0%'
   }
 
   const getProficiencyColor = (level: string) => {
-    const colors = {
-      'B1': 'from-yellow-400 to-yellow-500',
+    const colors: Record<string, string> = {
       'B2': 'from-orange-400 to-orange-500',
       'C1': 'from-blue-400 to-blue-600',
       'C2': 'from-green-500 to-green-600',
     }
-    return colors[level as keyof typeof colors] || 'from-gray-400 to-gray-500'
+    return colors[level] || 'from-gray-400 to-gray-500'
   }
 
   const displayedCategories = selectedCategory
@@ -36,9 +34,9 @@ export default function Skills() {
   return (
     <Section id="skills" background="gray">
       <SectionHeader
-        subtitle="What I Know"
-        title="Technical Skills & Expertise"
-        description="Comprehensive proficiency in industry-leading engineering software and tools"
+        subtitle="Technical Expertise"
+        title="Skills & Software Proficiency"
+        description="Specialized in structural analysis, BIM modeling, and code-compliant design across international standards"
       />
 
       {/* Category Filter */}
@@ -100,7 +98,7 @@ export default function Skills() {
                         <h4 className="font-semibold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">
                           {skill.name}
                         </h4>
-                        <p className="text-sm text-gray-600">{skill.proficiency}</p>
+                        <p className="text-sm text-gray-500">{skill.proficiency}</p>
                       </div>
                     </div>
                     <Badge variant="primary" size="sm">
@@ -127,22 +125,47 @@ export default function Skills() {
 
       {/* Proficiency Legend */}
       <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mt-10 flex flex-wrap justify-center gap-4"
+      >
+        {Object.entries(proficiencyLevels).map(([level, description]) => (
+          <div key={level} className="flex items-center gap-2 text-sm text-gray-600">
+            <Badge variant="primary" size="sm">{level}</Badge>
+            <span>{description}</span>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* Design Codes & Standards */}
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mt-12 sm:mt-16 bg-white rounded-2xl p-4 sm:p-8 shadow-lg"
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mt-12 sm:mt-16 bg-white rounded-2xl p-6 sm:p-8 shadow-lg"
       >
-        <h4 className="font-bold text-lg sm:text-xl text-gray-900 mb-4 sm:mb-6 text-center">
-          Proficiency Levels Explained
+        <h4 className="font-bold text-lg sm:text-xl text-gray-900 mb-2 text-center">
+          Design Codes & Standards
         </h4>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {Object.entries(proficiencyLevels).map(([level, description]) => (
-            <div key={level} className="flex flex-col items-center text-center p-3 sm:p-4 rounded-lg bg-gray-50">
-              <Badge variant="primary" size="sm" className="mb-2 sm:mb-3 text-xs sm:text-sm">
-                {level}
-              </Badge>
-              <p className="text-xs sm:text-sm text-gray-600">{description}</p>
+        <p className="text-sm text-gray-500 text-center mb-8">
+          All structural designs are produced in compliance with internationally recognised codes
+        </p>
+        <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
+          {designCodes.map((code) => (
+            <div
+              key={code.id}
+              className="flex flex-col items-center text-center p-4 rounded-xl bg-gradient-to-br from-primary-50 to-accent-50 border border-primary-100 hover:shadow-md transition-shadow"
+            >
+              <div className="w-14 h-14 bg-gradient-to-br from-primary-600 to-accent-500 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                <span className="text-white font-bold text-xs sm:text-sm tracking-tight">
+                  {code.icon}
+                </span>
+              </div>
+              <p className="font-bold text-gray-900 text-sm">{code.label}</p>
+              <p className="text-xs text-gray-500 mt-1">{code.description}</p>
             </div>
           ))}
         </div>

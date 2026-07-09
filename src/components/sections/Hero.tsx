@@ -77,10 +77,21 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-lg text-gray-600 mb-8 max-w-xl"
+              className="text-lg text-gray-600 mb-6 max-w-xl"
             >
               {heroContent.description}
             </motion.p>
+
+            {/* Availability Signal */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-sm font-medium px-4 py-2 rounded-full mb-8"
+            >
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              {heroContent.availability}
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -124,24 +135,39 @@ export default function Hero() {
               >
                 <FaLinkedin className="w-6 h-6" />
               </a>
-              <a
-                href={personalInfo.social?.github || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
-                aria-label="GitHub"
-              >
-                <FaGithub className="w-6 h-6" />
-              </a>
-              <a
-                href={personalInfo.social?.telegram || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
-                aria-label="Telegram"
-              >
-                <FaTelegram className="w-6 h-6" />
-              </a>
+              {personalInfo.social?.github && (
+                <a
+                  href={personalInfo.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
+                  aria-label="GitHub"
+                >
+                  <FaGithub className="w-6 h-6" />
+                </a>
+              )}
+              {personalInfo.social?.twitter && (
+                <a
+                  href={personalInfo.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
+                  aria-label="Twitter"
+                >
+                  <FaLinkedin className="w-6 h-6" />
+                </a>
+              )}
+              {personalInfo.social?.telegram && (
+                <a
+                  href={personalInfo.social.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:scale-110"
+                  aria-label="Telegram"
+                >
+                  <FaTelegram className="w-6 h-6" />
+                </a>
+              )}
             </motion.div>
           </motion.div>
 
@@ -160,6 +186,7 @@ export default function Hero() {
                   alt="Yibeltal Ebabu Dires"
                   width={1200}
                   height={800}
+                  unoptimized
                   className="w-full h-auto object-cover rounded-2xl"
                   priority
                 />

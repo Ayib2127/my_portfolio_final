@@ -2,15 +2,15 @@ import { PersonalInfo } from '@/types'
 
 export const personalInfo: PersonalInfo = {
   name: 'Yibeltal Ebabu Dires',
-  title: 'Civil Engineer | Structural Designer | Engineering Software Trainer',
-  subtitle: 'Specialized in High-Rise Building Design, Structural Analysis, and Advanced Engineering Software Training',
+  title: 'Structural Engineer | BIM Specialist | Engineering Software Trainer',
+  subtitle: 'Designing safe, economical, and code-compliant RC & steel structures — and training the next generation of engineers',
   location: 'Addis Ababa, Ethiopia',
   email: 'yibeltal2127@gmail.com',
   phone: '+251 910 08 37 33',
   telegram: '+251910083733',
-  bio: `I am a highly dedicated and eager Civil Engineer based in Addis Ababa, Ethiopia. I graduated with a BSc Degree in Civil Engineering from Debre Markos University with a CGPA of 3.73, ranking 2nd in my graduating class.
+  bio: `A dedicated Structural Engineer with over 7 years of experience in structural analysis, design, detailing, BIM modeling, construction documentation, and technical training. Proven expertise in designing safe, economical, and code-compliant reinforced concrete and steel structures for residential and commercial projects.
 
-My professional journey blends practical structural design with a passion for teaching. I have experience designing residential and high-rise commercial projects and have trained numerous students and professionals in industry-standard engineering software. I am committed to applying theoretical and practical knowledge to solve complex engineering challenges.`,
+Proficient in ETABS, SAFE, SAP2000, and STAAD.Pro, with strong knowledge of ES EN 2015 Standards, Eurocodes, and ACI 318. Having trained 200+ engineering students and professionals across Ethiopia, I combine deep technical expertise with a passion for mentoring and knowledge transfer. Available for remote structural design and consulting projects worldwide.`,
   languages: [
     { name: 'Amharic', proficiency: 'Native' },
     { name: 'English', proficiency: 'Proficient (C1/C2)' },
@@ -18,9 +18,9 @@ My professional journey blends practical structural design with a passion for te
   ],
   social: {
     linkedin: 'https://www.linkedin.com/in/yibeltal-dires-011a85132',
-    github: '#',   // Add your GitHub URL (if applicable)
-    twitter: '#',  // Add your Twitter URL (if applicable)
-    telegram: 'https://t.me/251910083733',  // Telegram profile
+    github: '',
+    twitter: '',
+    telegram: 'https://t.me/251910083733',
   },
 }
 
@@ -29,11 +29,12 @@ export const heroContent = {
   name: 'Yibeltal Ebabu Dires',
   titles: [
     'Structural Engineer',
+    'BIM Specialist',
     'Software Trainer',
-    'Senior CAD Designer',
-    'High-Rise Design Specialist',
+    'High-Rise Design Expert',
   ],
-  description: 'Passionate about designing innovative structures and empowering engineers with cutting-edge software skills.',
+  description: 'Designing safe, code-compliant structures and empowering 200+ engineers with industry-leading software skills — available for remote projects worldwide.',
+  availability: 'Open for remote projects · Addis Ababa, UTC+3 · Replies within 24 hrs',
   cta: {
     primary: { text: 'Download CV', href: 'https://drive.google.com/uc?export=download&id=1O6cD2SdBb6iSqdDWZ3lLF4tBxHIaw4hG' },
     secondary: { text: 'Contact Me', href: '#contact' },

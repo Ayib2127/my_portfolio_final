@@ -61,6 +61,7 @@ export default function Header() {
                 alt="Yibeltal Ebabu"
                 width={40}
                 height={40}
+                unoptimized
                 className="w-full h-full object-cover"
               />
             </div>

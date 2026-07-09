@@ -71,7 +71,8 @@ export interface Project {
   title: string
   description: string
   longDescription?: string
-  image: string
+  image: string          // primary / cover image
+  images?: string[]      // optional gallery (shown in detail modal)
   technologies: string[]
   category: 'Academic' | 'Professional' | 'Personal'
   featured: boolean

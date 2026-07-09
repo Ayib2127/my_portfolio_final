@@ -53,6 +53,7 @@ export default function Testimonials() {
                   alt={testimonial.name}
                   width={48}
                   height={48}
+                  unoptimized
                   className="w-12 h-12 rounded-full object-cover flex-shrink-0"
                 />
               ) : (
