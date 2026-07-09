@@ -6,22 +6,19 @@ import Section, { SectionHeader } from '@/components/ui/Section'
 import { projects, projectCategories } from '@/data/projects'
 import { Project } from '@/types'
 import Badge from '@/components/ui/Badge'
-import Card, { CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card'
-import { HiCalendar, HiX, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
+import { HiCalendar, HiX, HiChevronLeft, HiChevronRight, HiPhotograph, HiOutlineArrowRight } from 'react-icons/hi'
 import Image from 'next/image'
 
-// ─── Project Detail Modal ────────────────────────────────────────────────────
+// ─── Project Detail Modal ─────────────────────────────────────────────────────
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
-  const gallery = project.images && project.images.length > 1 ? project.images : null
+  const gallery = project.images && project.images.length > 0 ? project.images : [project.image]
   const [activeImg, setActiveImg] = useState(0)
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
-      if (gallery) {
-        if (e.key === 'ArrowRight') setActiveImg(i => (i + 1) % gallery.length)
-        if (e.key === 'ArrowLeft') setActiveImg(i => (i - 1 + gallery.length) % gallery.length)
-      }
+      if (e.key === 'ArrowRight') setActiveImg(i => (i + 1) % gallery.length)
+      if (e.key === 'ArrowLeft') setActiveImg(i => (i - 1 + gallery.length) % gallery.length)
     }
     document.addEventListener('keydown', handleKey)
     document.body.style.overflow = 'hidden'
@@ -31,131 +28,171 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     }
   }, [onClose, gallery])
 
-  const currentImage = gallery ? gallery[activeImg] : project.image
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-
-      {/* Modal Panel */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        onClick={onClose}
+      />
+
+      {/* Modal */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 24 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.25 }}
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto z-10"
-        onClick={(e) => e.stopPropagation()}
+        transition={{ duration: 0.28, ease: 'easeOut' }}
+        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-3xl max-h-[92vh] overflow-y-auto z-10 flex flex-col"
+        onClick={e => e.stopPropagation()}
       >
-        {/* Image / Gallery */}
-        <div className="relative h-56 sm:h-72 rounded-t-2xl overflow-hidden bg-gray-900">
+        {/* ── Image Gallery ── */}
+        <div className="relative h-64 sm:h-80 rounded-t-3xl overflow-hidden bg-gray-900 flex-shrink-0">
           <Image
-            src={currentImage}
-            alt={project.title}
+            src={gallery[activeImg]}
+            alt={`${project.title} — image ${activeImg + 1}`}
             fill
             unoptimized
             className="object-cover transition-opacity duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-          {/* Close button */}
+          {/* Close */}
           <button
             onClick={onClose}
-            aria-label="Close modal"
-            className="absolute top-4 right-4 w-9 h-9 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors z-10"
+            aria-label="Close"
+            className="absolute top-4 right-4 w-9 h-9 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all z-20 hover:scale-110"
           >
             <HiX className="w-5 h-5" />
           </button>
 
-          {/* Gallery navigation */}
-          {gallery && gallery.length > 1 && (
+          {/* Prev / Next */}
+          {gallery.length > 1 && (
             <>
               <button
                 onClick={() => setActiveImg(i => (i - 1 + gallery.length) % gallery.length)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
                 aria-label="Previous image"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
               >
                 <HiChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setActiveImg(i => (i + 1) % gallery.length)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
                 aria-label="Next image"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
               >
                 <HiChevronRight className="w-5 h-5" />
               </button>
 
+              {/* Image counter */}
+              <div className="absolute top-4 left-4 bg-black/50 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+                <HiPhotograph className="w-3.5 h-3.5" />
+                {activeImg + 1} / {gallery.length}
+              </div>
+
               {/* Dot indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
                 {gallery.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      i === activeImg ? 'bg-white w-4' : 'bg-white/50'
-                    }`}
                     aria-label={`Image ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === activeImg ? 'w-6 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                    }`}
                   />
                 ))}
               </div>
             </>
           )}
 
-          {/* Badges */}
+          {/* Category + Featured badges at bottom-left */}
           <div className="absolute bottom-4 left-4 flex gap-2">
-            {!(gallery && gallery.length > 1) && (
-              <>
-                <Badge variant="secondary" size="sm">{project.category}</Badge>
-                {project.featured && <Badge variant="warning" size="sm">Featured</Badge>}
-              </>
+            <span className="text-xs font-semibold bg-white/20 backdrop-blur-sm text-white border border-white/30 px-3 py-1 rounded-full">
+              {project.category}
+            </span>
+            {project.featured && (
+              <span className="text-xs font-semibold bg-accent-400/90 text-gray-900 px-3 py-1 rounded-full">
+                Featured
+              </span>
             )}
           </div>
         </div>
 
-        {/* Thumbnail strip for gallery */}
-        {gallery && gallery.length > 1 && (
-          <div className="flex gap-2 px-6 pt-4">
+        {/* ── Thumbnail strip ── */}
+        {gallery.length > 1 && (
+          <div className="flex gap-2 px-5 pt-4 overflow-x-auto scrollbar-hide flex-shrink-0">
             {gallery.map((img, i) => (
               <button
                 key={i}
                 onClick={() => setActiveImg(i)}
-                className={`relative w-16 h-12 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                  i === activeImg ? 'border-primary-500 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
+                className={`relative w-16 h-12 rounded-xl overflow-hidden flex-shrink-0 transition-all duration-200 ${
+                  i === activeImg
+                    ? 'ring-2 ring-primary-500 ring-offset-1 opacity-100'
+                    : 'opacity-50 hover:opacity-80'
                 }`}
               >
-                <Image src={img} alt={`View ${i + 1}`} fill unoptimized className="object-cover" />
+                <Image src={img} alt={`Thumbnail ${i + 1}`} fill unoptimized className="object-cover" />
               </button>
             ))}
-            <div className="flex items-center gap-2 ml-auto">
-              <Badge variant="secondary" size="sm">{project.category}</Badge>
-              {project.featured && <Badge variant="warning" size="sm">Featured</Badge>}
-            </div>
           </div>
         )}
 
-        {/* Content */}
-        <div className="p-6 sm:p-8">
-          <div className="mb-4">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
-            <div className="flex items-center text-sm text-gray-500">
-              <HiCalendar className="w-4 h-4 mr-1" />
-              {new Date(project.completionDate).toLocaleDateString('en-US', {
-                month: 'long',
-                year: 'numeric',
-              })}
+        {/* ── Content ── */}
+        <div className="p-6 sm:p-8 flex-1">
+          {/* Title & date */}
+          <div className="mb-5">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-2">
+              {project.title}
+            </h3>
+            <div className="flex items-center text-sm text-gray-400 gap-1.5">
+              <HiCalendar className="w-4 h-4" />
+              <span>
+                Completed{' '}
+                {new Date(project.completionDate).toLocaleDateString('en-US', {
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </span>
             </div>
           </div>
 
-          <div className="w-24 h-1 ethiopian-accent rounded-full mb-6" />
+          {/* Accent */}
+          <div className="w-16 h-1 ethiopian-accent rounded-full mb-6" />
 
-          <p className="text-gray-700 leading-relaxed mb-6">{project.longDescription}</p>
+          {/* Description */}
+          <p className="text-gray-600 leading-relaxed text-[15px] mb-8">
+            {project.longDescription}
+          </p>
 
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Technologies Used</h4>
+          {/* Technologies */}
+          <div className="bg-gray-50 rounded-2xl p-5">
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+              Tools & Technologies
+            </h4>
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <Badge key={tech} variant="primary" size="sm">{tech}</Badge>
+              {project.technologies.map(tech => (
+                <span
+                  key={tech}
+                  className="text-sm font-medium bg-white text-primary-700 border border-primary-200 px-3 py-1.5 rounded-lg shadow-sm"
+                >
+                  {tech}
+                </span>
               ))}
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between">
+            <p className="text-sm text-gray-400">Interested in a similar project?</p>
+            <a
+              href="#contact"
+              onClick={onClose}
+              className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:scale-105 active:scale-95"
+            >
+              Get in Touch <HiOutlineArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </motion.div>
@@ -163,7 +200,109 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   )
 }
 
-// ─── Main Projects Section ───────────────────────────────────────────────────
+// ─── Project Card ─────────────────────────────────────────────────────────────
+function ProjectCard({ project, index, onClick }: { project: Project; index: number; onClick: () => void }) {
+  const imageCount = project.images?.length ?? 1
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group cursor-pointer"
+      onClick={onClick}
+    >
+      <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 border border-gray-100 hover:-translate-y-1 flex flex-col h-full">
+
+        {/* Image */}
+        <div className="relative h-52 overflow-hidden bg-gray-200 flex-shrink-0">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            unoptimized
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+          {/* Top badges */}
+          <div className="absolute top-3 left-3 right-3 flex items-start justify-between">
+            <span className="text-xs font-semibold bg-black/40 backdrop-blur-sm text-white px-2.5 py-1 rounded-full">
+              {project.category}
+            </span>
+            {project.featured && (
+              <span className="text-xs font-bold bg-accent-400 text-gray-900 px-2.5 py-1 rounded-full shadow">
+                ★ Featured
+              </span>
+            )}
+          </div>
+
+          {/* Image count pill */}
+          {imageCount > 1 && (
+            <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/50 text-white text-xs px-2.5 py-1 rounded-full">
+              <HiPhotograph className="w-3.5 h-3.5" />
+              {imageCount} photos
+            </div>
+          )}
+
+          {/* Hover overlay */}
+          <div className="absolute inset-0 bg-primary-600/0 group-hover:bg-primary-600/10 transition-all duration-300 flex items-center justify-center">
+            <span className="bg-white text-primary-600 font-semibold text-sm px-4 py-2 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0">
+              View Details
+            </span>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="p-5 flex flex-col flex-1">
+          {/* Title */}
+          <h3 className="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+            {project.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-2 flex-1">
+            {project.description}
+          </p>
+
+          {/* Tech tags */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.technologies.slice(0, 3).map(tech => (
+              <span
+                key={tech}
+                className="text-xs font-medium bg-primary-50 text-primary-700 px-2.5 py-1 rounded-lg"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 3 && (
+              <span className="text-xs font-medium bg-gray-100 text-gray-500 px-2.5 py-1 rounded-lg">
+                +{project.technologies.length - 3}
+              </span>
+            )}
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+            <div className="flex items-center text-xs text-gray-400 gap-1">
+              <HiCalendar className="w-3.5 h-3.5" />
+              {new Date(project.completionDate).toLocaleDateString('en-US', {
+                month: 'short',
+                year: 'numeric',
+              })}
+            </div>
+            <span className="text-xs font-semibold text-primary-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+              Details <HiOutlineArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+// ─── Main Section ─────────────────────────────────────────────────────────────
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [activeProject, setActiveProject] = useState<Project | null>(null)
@@ -171,147 +310,79 @@ export default function Projects() {
   const filteredProjects =
     selectedCategory === 'all'
       ? projects
-      : projects.filter((project) => project.category.toLowerCase() === selectedCategory)
-
-  const featuredProjects = projects.filter((project) => project.featured)
+      : projects.filter(p => p.category.toLowerCase() === selectedCategory)
 
   return (
     <Section id="projects" background="gradient">
       <SectionHeader
         subtitle="My Work"
         title="Projects & Portfolio"
-        description="A showcase of academic and professional projects demonstrating expertise in structural engineering"
+        description="Structural engineering projects delivered across Ethiopia — click any project to explore drawings, models, and design details"
       />
 
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {projectCategories.map((category) => (
+      {/* Filter pills */}
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+        {projectCategories.map(cat => (
           <button
-            key={category.id}
-            onClick={() => setSelectedCategory(category.id)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-              selectedCategory === category.id
-                ? 'bg-primary-600 text-white shadow-lg scale-105'
-                : 'bg-white text-gray-700 hover:bg-gray-100 hover:scale-105'
+            key={cat.id}
+            onClick={() => setSelectedCategory(cat.id)}
+            className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              selectedCategory === cat.id
+                ? 'bg-primary-600 text-white shadow-lg shadow-primary-200 scale-105'
+                : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
             }`}
           >
-            {category.label}
+            {cat.label}
+            <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full ${
+              selectedCategory === cat.id ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'
+            }`}>
+              {cat.id === 'all'
+                ? projects.length
+                : projects.filter(p => p.category.toLowerCase() === cat.id).length}
+            </span>
           </button>
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project, index) => (
-          <motion.div
+          <ProjectCard
             key={project.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <Card hover className="h-full flex flex-col group">
-              {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary-400 to-accent-500 rounded-t-xl overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  unoptimized
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
-                {project.featured && (
-                  <div className="absolute top-3 right-3">
-                    <Badge variant="warning" size="sm">Featured</Badge>
-                  </div>
-                )}
-                <div className="absolute top-3 left-3">
-                  <Badge variant="secondary" size="sm">{project.category}</Badge>
-                </div>
-              </div>
-
-              <CardContent className="flex-1 flex flex-col">
-                <CardHeader>
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-
-                {/* Technologies */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <Badge key={tech} variant="primary" size="sm">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <Badge variant="secondary" size="sm">
-                        +{project.technologies.length - 4} more
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-
-                {/* Date */}
-                <div className="flex items-center text-sm text-gray-500 mt-auto">
-                  <HiCalendar className="w-4 h-4 mr-1" />
-                  {new Date(project.completionDate).toLocaleDateString('en-US', {
-                    month: 'long',
-                    year: 'numeric',
-                  })}
-                </div>
-              </CardContent>
-
-              <CardFooter>
-                <button
-                  onClick={() => setActiveProject(project)}
-                  className="w-full bg-primary-600 text-white py-2 rounded-lg hover:bg-primary-700 transition-colors"
-                >
-                  View Details
-                </button>
-              </CardFooter>
-            </Card>
-          </motion.div>
+            project={project}
+            index={index}
+            onClick={() => setActiveProject(project)}
+          />
         ))}
       </div>
 
-      {/* Featured Projects Highlight */}
-      {selectedCategory === 'all' && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16"
-        >
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-              Featured Highlights
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {featuredProjects.slice(0, 2).map((project) => (
-                <div
-                  key={project.id}
-                  className="p-6 bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl"
-                >
-                  <h4 className="font-bold text-xl text-gray-900 mb-2">{project.title}</h4>
-                  <p className="text-gray-600 mb-4">{project.longDescription}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="primary" size="sm">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+      {/* Empty state */}
+      {filteredProjects.length === 0 && (
+        <div className="text-center py-16 text-gray-400">
+          <p className="text-lg font-medium">No projects in this category yet.</p>
+        </div>
       )}
 
-      {/* Project Detail Modal */}
+      {/* CTA strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mt-12 text-center"
+      >
+        <p className="text-gray-500 mb-4 text-sm">
+          Have a project in mind? Let's discuss it.
+        </p>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-7 py-3 rounded-xl transition-all hover:shadow-xl hover:scale-105 active:scale-95"
+        >
+          Start a Project <HiOutlineArrowRight className="w-4 h-4" />
+        </a>
+      </motion.div>
+
+      {/* Modal */}
       {activeProject && (
         <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
       )}
