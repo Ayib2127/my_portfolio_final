@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { projects, projectCategories } from '@/data/projects'
@@ -11,7 +11,10 @@ import Image from 'next/image'
 
 // ─── Project Detail Modal ─────────────────────────────────────────────────────
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
-  const gallery = project.images && project.images.length > 0 ? project.images : [project.image]
+  const gallery = useMemo(
+    () => project.images && project.images.length > 0 ? project.images : [project.image],
+    [project.images, project.image]
+  )
   const [activeImg, setActiveImg] = useState(0)
 
   useEffect(() => {
@@ -372,7 +375,7 @@ export default function Projects() {
         className="mt-12 text-center"
       >
         <p className="text-gray-500 mb-4 text-sm">
-          Have a project in mind? Let's discuss it.
+          Have a project in mind? Let&apos;s discuss it.
         </p>
         <a
           href="#contact"

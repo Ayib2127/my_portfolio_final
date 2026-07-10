@@ -139,7 +139,7 @@ export default function Process() {
           Ready to start your project?
         </h3>
         <p className="text-gray-500 mb-6 max-w-xl mx-auto">
-          The first consultation is free. Share your project details and I'll get back to you within 24 hours.
+          The first consultation is free. Share your project details and I&apos;ll get back to you within 24 hours.
         </p>
         <a
           href="#contact"
