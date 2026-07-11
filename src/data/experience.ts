@@ -103,8 +103,8 @@ export const education: Education[] = [
     achievements: [
       'Graduated with CGPA of 3.73 out of 4.0',
       'Ranked 2nd among all Institute of Technology graduates',
-      'Final Year Project: Geometrical and Asphalt Pavement Design — Chirecha to Ganami Road',
       'Semester Project: Integrated Structural and Geotechnical Design of B+G+4 Administrative Offices',
+      'Strong foundation in structural analysis, mechanics of materials, and geotechnical engineering',
     ],
   },
 ]
