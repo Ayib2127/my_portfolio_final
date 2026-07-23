@@ -16,7 +16,7 @@ export default function Testimonials() {
         description="Feedback from colleagues, supervisors, and academic mentors"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={testimonial.id}

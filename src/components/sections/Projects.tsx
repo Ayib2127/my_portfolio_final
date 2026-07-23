@@ -65,7 +65,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-4 right-4 w-9 h-9 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all z-20 hover:scale-110"
+            className="absolute top-4 right-4 w-11 h-11 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all z-20"
           >
             <HiX className="w-5 h-5" />
           </button>
@@ -76,14 +76,14 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               <button
                 onClick={() => setActiveImg(i => (i - 1 + gallery.length) % gallery.length)}
                 aria-label="Previous image"
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all"
               >
                 <HiChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setActiveImg(i => (i + 1) % gallery.length)}
                 aria-label="Next image"
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all"
               >
                 <HiChevronRight className="w-5 h-5" />
               </button>
@@ -94,17 +94,18 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 {activeImg + 1} / {gallery.length}
               </div>
 
-              {/* Dot indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1">
                 {gallery.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
                     aria-label={`Image ${i + 1}`}
-                    className={`rounded-full transition-all duration-300 ${
-                      i === activeImg ? 'w-6 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
-                    }`}
-                  />
+                    className={`p-2 rounded-full transition-all duration-300`}
+                  >
+                    <span className={`block rounded-full transition-all duration-300 ${
+                      i === activeImg ? 'w-4 h-2 bg-white' : 'w-2 h-2 bg-white/50'
+                    }`} />
+                  </button>
                 ))}
               </div>
             </>
@@ -329,7 +330,7 @@ export default function Projects() {
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 min-h-[44px] ${
               selectedCategory === cat.id
                 ? 'bg-primary-600 text-white shadow-lg shadow-primary-200 scale-105'
                 : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'

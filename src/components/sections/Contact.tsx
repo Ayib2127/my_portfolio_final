@@ -150,7 +150,7 @@ export default function Contact() {
             {/* Social Links */}
             <div>
               <p className="text-white/70 mb-4">Follow me on social media</p>
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-3">
                 {personalInfo.social.linkedin && (
                   <a
                     href={personalInfo.social.linkedin}

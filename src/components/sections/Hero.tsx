@@ -30,7 +30,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -50,7 +50,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight"
             >
               {heroContent.name}
             </motion.h1>
@@ -63,7 +63,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="h-20 mb-6"
+              className="min-h-[5rem] mb-6"
             >
               <p className="text-2xl md:text-3xl font-semibold text-gray-700">
                 I&apos;m a{' '}
@@ -124,7 +124,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="flex space-x-4"
+              className="flex flex-wrap gap-3"
             >
               <a
                 href={personalInfo.social?.linkedin || "#"}
@@ -203,9 +203,9 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-400 rounded-2xl shadow-xl float-animation" />
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-primary-500 rounded-2xl shadow-xl float-animation animation-delay-2000" />
+              {/* Floating Elements — hidden on small screens to prevent overflow */}
+              <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-accent-400 rounded-2xl shadow-xl float-animation" />
+              <div className="hidden sm:block absolute -bottom-4 -left-4 w-20 h-20 bg-primary-500 rounded-2xl shadow-xl float-animation animation-delay-2000" />
             </div>
           </motion.div>
         </div>

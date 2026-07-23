@@ -43,7 +43,7 @@ export default function Skills() {
       <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
         <button
           onClick={() => setSelectedCategory(null)}
-          className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 active:scale-95 ${
+          className={`px-4 sm:px-6 py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 active:scale-95 min-h-[44px] ${
             selectedCategory === null
               ? 'bg-primary-600 text-white shadow-lg'
               : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -55,7 +55,7 @@ export default function Skills() {
           <button
             key={category.category}
             onClick={() => setSelectedCategory(category.category)}
-            className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 active:scale-95 ${
+            className={`px-4 sm:px-6 py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 active:scale-95 min-h-[44px] ${
               selectedCategory === category.category
                 ? 'bg-primary-600 text-white shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -153,7 +153,7 @@ export default function Skills() {
         <p className="text-sm text-gray-500 text-center mb-8">
           All structural designs are produced in compliance with internationally recognised codes
         </p>
-        <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
           {designCodes.map((code) => (
             <div
               key={code.id}
