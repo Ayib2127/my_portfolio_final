@@ -3,24 +3,26 @@ import { PersonalInfo } from '@/types'
 export const personalInfo: PersonalInfo = {
   name: 'Yibeltal Ebabu Dires',
   title: 'Structural Engineer | BIM Specialist | Engineering Software Trainer',
-  subtitle: 'Designing safe, economical, and code-compliant RC & steel structures — and training the next generation of engineers',
+  subtitle: 'Designing Safe, Efficient & Code-Compliant Structures',
   location: 'Addis Ababa, Ethiopia',
   email: 'yibeltal2127@gmail.com',
   phone: '+251 910 08 37 33',
   telegram: '+251910083733',
-  bio: `A dedicated Structural Engineer with over 7 years of experience in structural analysis, design, detailing, BIM modeling, construction documentation, and technical training. Proven expertise in designing safe, economical, and code-compliant reinforced concrete and steel structures for residential and commercial projects.
+  website: 'https://yibeltaldesign.pro.et',
+  bio: `A dedicated Structural Engineer with 7+ years of combined experience in structural design production and advanced technical training. Experienced in the structural design of residential, commercial, and multi-storey buildings using ETABS, SAFE, SAP2000, and STAAD.Pro in accordance with ES EN 2015 Standards, Eurocodes, and ACI 318.
 
-Proficient in ETABS, SAFE, SAP2000, and STAAD.Pro, with strong knowledge of ES EN 2015 Standards, Eurocodes, and ACI 318. Having trained 200+ engineering students and professionals across Ethiopia, I combine deep technical expertise with a passion for mentoring and knowledge transfer. Available for remote structural design and consulting projects worldwide.`,
+Available for remote structural design, consulting, and software training engagements worldwide.`,
   languages: [
     { name: 'Amharic', proficiency: 'Native' },
-    { name: 'English', proficiency: 'Proficient (C1/C2)' },
-    { name: 'Geez', proficiency: 'Basic' },
+    { name: 'English', proficiency: 'Professional Proficiency' },
   ],
+  membership: 'Ethiopian Civil Engineers Association (ECEA)',
   social: {
     linkedin: 'https://www.linkedin.com/in/yibeltal-dires-011a85132',
     github: '',
     twitter: '',
     telegram: 'https://t.me/251910083733',
+    whatsapp: 'https://wa.me/251910083733',
   },
 }
 

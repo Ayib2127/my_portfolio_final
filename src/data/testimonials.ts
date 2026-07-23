@@ -36,6 +36,15 @@ export const testimonials: Testimonial[] = [
   },
 ]
 
+// Professional Reference
+export const reference = {
+  name: 'Eng. Bekalu Yetechalew',
+  title: 'Structural Design Team Leader',
+  company: 'Emarosh Engineering PLC',
+  phone: '+251 935 474 722',
+  email: 'yetechalew55@gmail.com',
+}
+
 export const achievements = [
   {
     id: '1',

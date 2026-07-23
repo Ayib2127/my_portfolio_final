@@ -8,7 +8,7 @@ import Textarea from '@/components/ui/Textarea'
 import Button from '@/components/ui/Button'
 import { personalInfo } from '@/data/personal'
 import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
-import { FaLinkedin, FaGithub, FaTwitter, FaTelegram } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaTwitter, FaTelegram, FaWhatsapp } from 'react-icons/fa'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -193,6 +193,17 @@ export default function Contact() {
                     aria-label="Telegram"
                   >
                     <FaTelegram className="w-6 h-6" />
+                  </a>
+                )}
+                {personalInfo.social.whatsapp && (
+                  <a
+                    href={personalInfo.social.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-300"
+                    aria-label="WhatsApp"
+                  >
+                    <FaWhatsapp className="w-6 h-6" />
                   </a>
                 )}
               </div>

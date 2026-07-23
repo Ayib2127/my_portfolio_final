@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { heroContent, personalInfo } from '@/data/personal'
 import Button from '@/components/ui/Button'
 import { HiDownload, HiMail } from 'react-icons/hi'
-import { FaLinkedin, FaGithub, FaTelegram } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaTelegram, FaWhatsapp } from 'react-icons/fa'
 
 export default function Hero() {
   const [titleIndex, setTitleIndex] = useState(0)
@@ -166,6 +166,17 @@ export default function Hero() {
                   aria-label="Telegram"
                 >
                   <FaTelegram className="w-6 h-6" />
+                </a>
+              )}
+              {personalInfo.social?.whatsapp && (
+                <a
+                  href={personalInfo.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-300 hover:scale-110"
+                  aria-label="WhatsApp"
+                >
+                  <FaWhatsapp className="w-6 h-6" />
                 </a>
               )}
             </motion.div>

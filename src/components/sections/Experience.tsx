@@ -126,7 +126,7 @@ export default function Experience() {
             Looking for a Skilled Structural Engineer or Trainer?
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            With over 5 years of combined experience in structural engineering and software training,
+            With over 7 years of experience in structural engineering and software training,
             I&apos;m ready to bring value to your next project or training program.
           </p>
           <a

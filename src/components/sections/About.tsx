@@ -6,7 +6,7 @@ import Section, { SectionHeader } from '@/components/ui/Section'
 import { personalInfo } from '@/data/personal'
 import { education } from '@/data/experience'
 import { achievements } from '@/data/testimonials'
-import { HiAcademicCap, HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi'
+import { HiAcademicCap, HiLocationMarker, HiMail, HiPhone, HiGlobe, HiBadgeCheck } from 'react-icons/hi'
 
 export default function About() {
   const educationData = education[0]
@@ -16,7 +16,7 @@ export default function About() {
       <SectionHeader
         subtitle="Get to Know Me"
         title="About Me"
-        description="A passionate Civil Engineer dedicated to excellence in structural design and engineering education"
+        description="Structural Engineer and BIM Specialist with 7+ years of experience in design, analysis, and technical training"
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
@@ -37,21 +37,35 @@ export default function About() {
           {/* Contact Info */}
           <div className="mt-8 space-y-3">
             <div className="flex items-center space-x-3 text-gray-700">
-              <HiLocationMarker className="w-5 h-5 text-primary-600" />
+              <HiLocationMarker className="w-5 h-5 text-primary-600 flex-shrink-0" />
               <span>{personalInfo.location}</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-700">
-              <HiMail className="w-5 h-5 text-primary-600" />
+              <HiMail className="w-5 h-5 text-primary-600 flex-shrink-0" />
               <a href={`mailto:${personalInfo.email}`} className="hover:text-primary-600 transition-colors">
                 {personalInfo.email}
               </a>
             </div>
             <div className="flex items-center space-x-3 text-gray-700">
-              <HiPhone className="w-5 h-5 text-primary-600" />
+              <HiPhone className="w-5 h-5 text-primary-600 flex-shrink-0" />
               <a href={`tel:${personalInfo.phone}`} className="hover:text-primary-600 transition-colors">
                 {personalInfo.phone}
               </a>
             </div>
+            {personalInfo.website && (
+              <div className="flex items-center space-x-3 text-gray-700">
+                <HiGlobe className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                <a href={personalInfo.website} target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 transition-colors">
+                  {personalInfo.website.replace('https://', '')}
+                </a>
+              </div>
+            )}
+            {personalInfo.membership && (
+              <div className="flex items-center space-x-3 text-gray-700">
+                <HiBadgeCheck className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                <span className="font-medium">{personalInfo.membership}</span>
+              </div>
+            )}
           </div>
 
           {/* Languages */}

@@ -7,8 +7,10 @@ export interface PersonalInfo {
   email: string
   phone: string
   telegram?: string
+  website?: string
   bio: string
   languages: Language[]
+  membership?: string
   social: SocialLinks
 }
 
@@ -23,6 +25,7 @@ export interface SocialLinks {
   twitter?: string
   facebook?: string
   telegram?: string
+  whatsapp?: string
 }
 
 // Work Experience Types

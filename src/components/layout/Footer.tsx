@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { footerLinks } from '@/data/navigation'
 import { personalInfo } from '@/data/personal'
-import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt, FaTelegram, FaWhatsapp } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -31,8 +31,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Structural Engineer and Engineering Software Trainer specializing in high-rise building design 
-              and advanced engineering software training in Ethiopia.
+              Structural Engineer and BIM Specialist delivering code-compliant RC and steel structure design,
+              and engineering software training — available for remote projects worldwide.
             </p>
             <div className="space-y-2">
               <a
@@ -106,26 +106,26 @@ export default function Footer() {
                   <FaLinkedin className="w-5 h-5" />
                 </a>
               )}
-              {personalInfo.social.github && (
+              {personalInfo.social.telegram && (
                 <a
-                  href={personalInfo.social.github}
+                  href={personalInfo.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300"
-                  aria-label="GitHub"
+                  aria-label="Telegram"
                 >
-                  <FaGithub className="w-5 h-5" />
+                  <FaTelegram className="w-5 h-5" />
                 </a>
               )}
-              {personalInfo.social.twitter && (
+              {personalInfo.social.whatsapp && (
                 <a
-                  href={personalInfo.social.twitter}
+                  href={personalInfo.social.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300"
-                  aria-label="Twitter"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                  aria-label="WhatsApp"
                 >
-                  <FaTwitter className="w-5 h-5" />
+                  <FaWhatsapp className="w-5 h-5" />
                 </a>
               )}
             </div>
