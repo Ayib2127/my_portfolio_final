@@ -54,7 +54,18 @@ export default function Experience() {
                     </div>
 
                     <p className="text-lg font-semibold text-primary-700 mb-3">
-                      {experience.company}
+                      {experience.companyUrl ? (
+                        <a
+                          href={experience.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary-500 underline underline-offset-2 transition-colors"
+                        >
+                          {experience.company}
+                        </a>
+                      ) : (
+                        experience.company
+                      )}
                     </p>
 
                     <div className="flex flex-wrap gap-3 text-sm text-gray-600 mb-3">

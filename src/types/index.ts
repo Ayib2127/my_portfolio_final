@@ -33,6 +33,7 @@ export interface WorkExperience {
   id: string
   title: string
   company: string
+  companyUrl?: string
   location: string
   startDate: string
   endDate: string | 'Present'

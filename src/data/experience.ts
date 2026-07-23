@@ -5,6 +5,7 @@ export const workExperience: WorkExperience[] = [
     id: '1',
     title: 'Structural Design Engineer',
     company: 'Emarosh Engineering PLC',
+    companyUrl: 'https://e.emarosh.com/',
     location: 'Addis Ababa, Ethiopia',
     startDate: '2026-01',
     endDate: 'Present',
