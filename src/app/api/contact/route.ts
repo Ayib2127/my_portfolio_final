@@ -19,6 +19,11 @@ const getResendClient = () => {
 
 // ─── Email HTML template ──────────────────────────────────────────────────────
 function buildEmailHtml(name: string, email: string, subject: string | null, message: string) {
+  // Extract service type from subject (format: "Service Name — subject detail")
+  const parts = subject?.split(' — ') ?? []
+  const serviceType = parts[0] || null
+  const subjectDetail = parts[1] || null
+
   return `
     <!DOCTYPE html>
     <html>
@@ -36,8 +41,16 @@ function buildEmailHtml(name: string, email: string, subject: string | null, mes
           </p>
         </div>
 
+        <!-- Service badge -->
+        ${serviceType ? `
+        <div style="padding: 16px 32px 0;">
+          <span style="display: inline-block; background: #eff6ff; color: #0ea5e9; border: 1px solid #bfdbfe; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;">
+            🔧 ${serviceType}
+          </span>
+        </div>` : ''}
+
         <!-- Body -->
-        <div style="padding: 32px;">
+        <div style="padding: 24px 32px 32px;">
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; width: 120px;">
@@ -55,13 +68,13 @@ function buildEmailHtml(name: string, email: string, subject: string | null, mes
                 <a href="mailto:${email}" style="color: #0ea5e9; text-decoration: none; font-size: 15px;">${email}</a>
               </td>
             </tr>
-            ${subject ? `
+            ${subjectDetail ? `
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;">
                 <strong style="color: #555; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Subject</strong>
               </td>
               <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #111; font-size: 15px;">
-                ${subject}
+                ${subjectDetail}
               </td>
             </tr>` : ''}
             <tr>
@@ -86,7 +99,7 @@ function buildEmailHtml(name: string, email: string, subject: string | null, mes
         <!-- Footer -->
         <div style="background: #f8f8f8; padding: 16px 32px; text-align: center;">
           <p style="margin: 0; color: #999; font-size: 12px;">
-            This message was submitted via <strong>yibeltaldesign.pro.et</strong> · ${new Date().toUTCString()}
+            Submitted via <strong>yibeltaldesign.pro.et</strong> · ${new Date().toUTCString()}
           </p>
         </div>
       </div>
