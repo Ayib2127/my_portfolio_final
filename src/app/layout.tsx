@@ -16,7 +16,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://yibeltal-portfolio.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://yibeltaldesign.pro.et'),
   title: 'Yibeltal Ebabu Dires | Structural Engineer & Software Trainer',
   description: 'Professional portfolio of Yibeltal Ebabu Dires - Structural Engineer and Engineering Software Trainer specializing in high-rise building design, ETABS, SAP2000, and advanced engineering software.',
   icons: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://yibeltal-portfolio.vercel.app',
+    url: 'https://yibeltaldesign.pro.et',
     siteName: 'Yibeltal Ebabu Dires Portfolio',
     title: 'Yibeltal Ebabu Dires | Structural Engineer & Software Trainer',
     description: 'Professional portfolio showcasing expertise in structural engineering and engineering software training.',

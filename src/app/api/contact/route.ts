@@ -99,7 +99,7 @@ function buildEmailHtml(name: string, email: string, subject: string | null, mes
         <!-- Footer -->
         <div style="background: #f8f8f8; padding: 16px 32px; text-align: center;">
           <p style="margin: 0; color: #999; font-size: 12px;">
-            Submitted via <strong>yibeltaldesign.pro.et</strong> · ${new Date().toUTCString()}
+          Submitted via <strong>yibeltaldesign.pro.et</strong> · ${new Date().toUTCString()}
           </p>
         </div>
       </div>
